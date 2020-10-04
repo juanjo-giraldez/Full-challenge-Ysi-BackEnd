@@ -3,6 +3,8 @@ package main;
 import (
 	"log"
 	"net/http"
+	"./routes"
+	"./utils"
 	"github.com/gorilla/mux"
 )
 
