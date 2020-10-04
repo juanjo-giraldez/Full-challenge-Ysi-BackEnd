@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  db_mysql:
+    container_name: db_mysql
+    restart: always
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 'admin' # TODO: Change this
+      MYSQL_USER: 'admin'
+      MYSQL_PASS: 'admin'
+    volumes:
+      - /var/lib/mysql
