@@ -6,11 +6,17 @@ import (
 	"./routes"
 	"./utils"
 	"github.com/gorilla/mux"
+	"github.com/rs/cors"
 )
 
 func main() {
 
 	utils.MigrateDB()
+
+	c := cors.New(cors.Options{
+		AllowedOrigins: []string{"*"},
+		AllowedMethods: []string{"GET", "POST", "DELETE"}, 
+	})
 
 	route := mux.NewRouter()
 
@@ -19,7 +25,7 @@ func main() {
 	server := http.Server{
 
 		Addr: ":3306",
-		Handler: route,
+		Handler: c.Handler(route),
 	}
 
 	log.Println("Running on port 3306")
