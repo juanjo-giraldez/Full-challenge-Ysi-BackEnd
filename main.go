@@ -8,6 +8,7 @@ import (
 
 func main() {
 
+	utils.MigrateDB()
 
 	route := mux.NewRouter()
 
