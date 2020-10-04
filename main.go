@@ -14,6 +14,8 @@ func main() {
 
 	route := mux.NewRouter()
 
+	routes.SetCompanyRoutes(route)
+
 	server := http.Server{
 
 		Addr: ":3306",
